@@ -83,7 +83,7 @@ local Button = Tab:CreateButton({
    end,
 })
 local Button = Tab:CreateButton({
-   Name = "YARHM MM2 ( currently unavailable) ",
+   Name = "YARHM (unavailable)",
    Callback = function()
    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-YARHM-12403"))()
    end,
@@ -140,4 +140,3 @@ local Button = Tab:CreateButton({
    -- The function that takes place when the button is pressed
    end,
 })
-
