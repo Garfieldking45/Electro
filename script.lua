@@ -1,4 +1,4 @@
-print("Made by devs of Elektro Do not claim As yours")
+print("Made by devs of Elektro Do not claim As yours or just promote it would help a lot thanks !")
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
     local Window = Rayfield:CreateWindow({
@@ -32,7 +32,7 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
       Subtitle = "Key System",
       Note = "dm the owner or check google Docs !!!", -- Use this to tell the user how to get a key
       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-      SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
       Key = {"Murder Mystery Z"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
    }
@@ -83,7 +83,7 @@ local Button = Tab:CreateButton({
    end,
 })
 local Button = Tab:CreateButton({
-   Name = "YARHM (unavailable)",
+   Name = "YARHM",
    Callback = function()
    loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-YARHM-12403"))()
    end,
@@ -140,3 +140,23 @@ local Button = Tab:CreateButton({
    -- The function that takes place when the button is pressed
    end,
 })
+
+local Tab = Window:CreateTab("ELEKTRIC", nil) -- Title, Image
+local Section = Tab:CreateSection("Universal script")
+
+local Button = Tab:CreateButton({
+   Name = "SS_LOBSTER (THE GOAT)",
+   Callback = function()
+   -- The function that takes place when the button is pressed
+   end,
+})
+
+local Section = Tab:CreateSection("Aimbot")
+
+local Button = Tab:CreateButton({
+   Name = "Aimbot ( in the works )'",
+   Callback = function()
+   -- The function that takes place when the button is pressed
+   end,
+})
+
