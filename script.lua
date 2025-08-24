@@ -140,6 +140,12 @@ local Button = Tab:CreateButton({
    -- The function that takes place when the button is pressed
    end,
 })
+local Button = Tab:CreateButton({
+   Name = "KA_NO (KORDIAN)",
+   Callback = function()
+   -- The function that takes place when the button is pressed
+   end,
+})
 
 local Tab = Window:CreateTab("ELEKTRIC", nil) -- Title, Image
 local Section = Tab:CreateSection("Universal script")
@@ -154,7 +160,7 @@ local Button = Tab:CreateButton({
 local Section = Tab:CreateSection("Aimbot")
 
 local Button = Tab:CreateButton({
-   Name = "Aimbot ( in the works )'",
+   Name = "Aimbot ( in the works )",
    Callback = function()
    -- The function that takes place when the button is pressed
    end,
