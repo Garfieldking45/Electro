@@ -151,7 +151,7 @@ local Tab = Window:CreateTab("ELEKTRIC", nil) -- Title, Image
 local Section = Tab:CreateSection("Universal script")
 
 local Button = Tab:CreateButton({
-   Name = "SS_LOBSTER (THE GOAT)",
+   Name = "Lxbstrr (THE GOAT)",
    Callback = function()
    -- The function that takes place when the button is pressed
    end,
