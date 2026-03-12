@@ -1,168 +1,220 @@
-print("Made by devs of Elektro Do not claim As yours or just promote it would help a lot thanks !")
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+-- AdvancedMovementMenu
+-- LocalScript inside StarterPlayerScripts
 
-    local Window = Rayfield:CreateWindow({
-   Name = "Elektrical hub ",
-   Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
-   LoadingTitle = "Elektrical Hub",
-   LoadingSubtitle = "by Elektric team",
-   ShowText = "Rayfield", -- for mobile users to unhide rayfield, change if you'd like
-   Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+local Players = game:GetService("Players")
+local UIS = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
 
-   ToggleUIKeybind = "T", -- The keybind to toggle the UI visibility (string like "K" or Enum.KeyCode)
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local root = character:WaitForChild("HumanoidRootPart")
 
-   DisableRayfieldPrompts = false,
-   DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+player.CharacterAdded:Connect(function(char)
+	character = char
+	humanoid = char:WaitForChild("Humanoid")
+	root = char:WaitForChild("HumanoidRootPart")
+end)
 
-   ConfigurationSaving = {
-      Enabled = true,
-      FolderName = nil, -- Create a custom folder for your hub/game
-      FileName = "Elektrical Hub"
-   },
+-- GUI
+local gui = Instance.new("ScreenGui")
+gui.Name = "AdvancedMenu"
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
 
-   Discord = {
-      Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
-      Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ ABCD would be ABCD
-      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
-   },
+local frame = Instance.new("Frame")
+frame.Size = UDim2.new(0,250,0,280)
+frame.Position = UDim2.new(0,100,0,100)
+frame.BackgroundColor3 = Color3.fromRGB(30,30,30)
+frame.Active = true
+frame.Draggable = true
+frame.Parent = gui
 
-   KeySystem = true, -- Set this to true to use our key system
-   KeySettings = {
-          Title = "Elektrical Key",
-      Subtitle = "Key System",
-      Note = "dm the owner or check google Docs !!!", -- Use this to tell the user how to get a key
-      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
-      SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
-      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
-      Key = {"Murder Mystery Z"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
-   }
-})
+local title = Instance.new("TextLabel")
+title.Size = UDim2.new(1,0,0,30)
+title.Text = "Advanced Movement Menu"
+title.BackgroundTransparency = 1
+title.TextColor3 = Color3.new(1,1,1)
+title.Parent = frame
 
-local MainTab = Window:CreateTab("Credits", nil) -- Title, Image
-local MainSection = MainTab:CreateSection("Developers")
+-- WalkSpeed
+local speedBox = Instance.new("TextBox")
+speedBox.Position = UDim2.new(0,10,0,40)
+speedBox.Size = UDim2.new(0,140,0,30)
+speedBox.PlaceholderText = "WalkSpeed"
+speedBox.Parent = frame
 
-Rayfield:Notify({
-   Title = "you executed the script successfully",
-   Content = "have fun :)",
-   Duration = 6.5,
-   Image = nil,
-})
+local speedBtn = Instance.new("TextButton")
+speedBtn.Position = UDim2.new(0,160,0,40)
+speedBtn.Size = UDim2.new(0,70,0,30)
+speedBtn.Text = "Set"
+speedBtn.Parent = frame
 
-local Button = MainTab:CreateButton({
-   Name = "Elektro",
-   Callback = function()
-   -- The function that takes place when the button is pressed
-   end,
-})
-local Button = MainTab:CreateButton({
-   Name = "GarfieldKing45",
-   Callback = function()
-   -- The function that takes place when the button is pressed
-   end,
-})
+-- JumpPower
+local jumpBox = Instance.new("TextBox")
+jumpBox.Position = UDim2.new(0,10,0,80)
+jumpBox.Size = UDim2.new(0,140,0,30)
+jumpBox.PlaceholderText = "JumpPower"
+jumpBox.Parent = frame
 
-local Tab = Window:CreateTab("Dedicated Scripts", nil) -- Title, Image
-local Section = Tab:CreateSection("the best of the best")
+local jumpBtn = Instance.new("TextButton")
+jumpBtn.Position = UDim2.new(0,160,0,80)
+jumpBtn.Size = UDim2.new(0,70,0,30)
+jumpBtn.Text = "Set"
+jumpBtn.Parent = frame
 
-local Button = Tab:CreateButton({
-   Name = "Infinite Yield",
-   Callback = function()
-   loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Ink game (supported) RINGA ",
-   Callback = function()
-   loadstring(game:HttpGet("https://pastebin.com/raw/z0NzdtZC"))()
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Zephyr MVSD  ",
-   Callback = function()
-   loadstring(game:HttpGet("https://raw.githubusercontent.com/TheRealAvrwm/Zephyr-V2/refs/heads/main/ZephyrV2", true))()
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "YARHM",
-   Callback = function()
-   loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-YARHM-12403"))()
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Solaris Arsenal",
-   Callback = function()
-   loadstring(game:HttpGet("https://rawscripts.net/raw/Counter-Blox-Solaris-14633"))()
-   end,
-})
+-- Fly
+local flyBtn = Instance.new("TextButton")
+flyBtn.Position = UDim2.new(0,10,0,130)
+flyBtn.Size = UDim2.new(0,220,0,30)
+flyBtn.Text = "Fly: OFF"
+flyBtn.Parent = frame
 
-local Tab = Window:CreateTab("Special thanks", nil) -- Title, Image
-local Section = Tab:CreateSection("Special People")
+-- Noclip
+local noclipBtn = Instance.new("TextButton")
+noclipBtn.Position = UDim2.new(0,10,0,170)
+noclipBtn.Size = UDim2.new(0,220,0,30)
+noclipBtn.Text = "Noclip: OFF"
+noclipBtn.Parent = frame
 
-local Button = Tab:CreateButton({
-   Name = "PlayFede",
-   Callback = function()
-   -- The function that takes place when the button is pressed
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Tato",
-   Callback = function()
-   -- The function that takes place when the button is pressed
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Leo",
-   Callback = function()
-   -- The function that takes place when the button is pressed
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Red gaming",
-   Callback = function()
-   -- The function that takes place when the button is pressed
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "bacon Nova",
-   Callback = function()
-   -- The function that takes place when the button is pressed
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Lukas (mm2giftgivermm2)",
-   Callback = function()
-   -- The function that takes place when the button is pressed
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "Beyrem (Beyremong)",
-   Callback = function()
-   -- The function that takes place when the button is pressed
-   end,
-})
-local Button = Tab:CreateButton({
-   Name = "KA_NO (KORDIAN)",
-   Callback = function()
-   -- The function that takes place when the button is pressed
-   end,
-})
+-- Infinite Jump
+local infJumpBtn = Instance.new("TextButton")
+infJumpBtn.Position = UDim2.new(0,10,0,210)
+infJumpBtn.Size = UDim2.new(0,220,0,30)
+infJumpBtn.Text = "Infinite Jump: OFF"
+infJumpBtn.Parent = frame
 
-local Tab = Window:CreateTab("ELEKTRIC", nil) -- Title, Image
-local Section = Tab:CreateSection("Universal script")
+-- Toggle menu
+UIS.InputBegan:Connect(function(input,gp)
+	if gp then return end
+	
+	if input.KeyCode == Enum.KeyCode.RightShift then
+		frame.Visible = not frame.Visible
+	end
+end)
 
-local Button = Tab:CreateButton({
-   Name = "Lxbstrr (THE GOAT)",
-   Callback = function()
-   -- The function that takes place when the button is pressed
-   end,
-})
+-- WalkSpeed
+speedBtn.MouseButton1Click:Connect(function()
+	local val = tonumber(speedBox.Text)
+	if val then
+		humanoid.WalkSpeed = val
+	end
+end)
 
-local Section = Tab:CreateSection("Aimbot")
+-- JumpPower
+jumpBtn.MouseButton1Click:Connect(function()
+	local val = tonumber(jumpBox.Text)
+	if val then
+		humanoid.JumpPower = val
+	end
+end)
 
-local Button = Tab:CreateButton({
-   Name = "Aimbot ( in the works )",
-   Callback = function()
-   -- The function that takes place when the button is pressed
-   end,
-})
+-- Fly system
+local flying = false
+local bodyVel
+local bodyGyro
 
+flyBtn.MouseButton1Click:Connect(function()
+
+	flying = not flying
+	
+	if flying then
+		
+		flyBtn.Text = "Fly: ON"
+		humanoid.PlatformStand = true
+		
+		bodyVel = Instance.new("BodyVelocity")
+		bodyVel.MaxForce = Vector3.new(100000,100000,100000)
+		bodyVel.Parent = root
+		
+		bodyGyro = Instance.new("BodyGyro")
+		bodyGyro.MaxTorque = Vector3.new(100000,100000,100000)
+		bodyGyro.Parent = root
+		
+	else
+		
+		flyBtn.Text = "Fly: OFF"
+		humanoid.PlatformStand = false
+		
+		if bodyVel then bodyVel:Destroy() end
+		if bodyGyro then bodyGyro:Destroy() end
+		
+	end
+end)
+
+RunService.RenderStepped:Connect(function()
+
+	if flying and bodyVel and bodyGyro then
+		
+		local cam = workspace.CurrentCamera
+		bodyGyro.CFrame = cam.CFrame
+		
+		local move = Vector3.zero
+		
+		if UIS:IsKeyDown(Enum.KeyCode.W) then
+			move += cam.CFrame.LookVector
+		end
+		
+		if UIS:IsKeyDown(Enum.KeyCode.S) then
+			move -= cam.CFrame.LookVector
+		end
+		
+		if UIS:IsKeyDown(Enum.KeyCode.A) then
+			move -= cam.CFrame.RightVector
+		end
+		
+		if UIS:IsKeyDown(Enum.KeyCode.D) then
+			move += cam.CFrame.RightVector
+		end
+		
+		bodyVel.Velocity = move * 80
+		
+	end
+
+end)
+
+-- Noclip
+local noclip = false
+
+noclipBtn.MouseButton1Click:Connect(function()
+	noclip = not noclip
+	
+	if noclip then
+		noclipBtn.Text = "Noclip: ON"
+	else
+		noclipBtn.Text = "Noclip: OFF"
+	end
+end)
+
+RunService.Stepped:Connect(function()
+	if noclip and character then
+		for _,v in pairs(character:GetDescendants()) do
+			if v:IsA("BasePart") then
+				v.CanCollide = false
+			end
+		end
+	end
+end)
+
+-- Infinite Jump
+local infJump = false
+
+infJumpBtn.MouseButton1Click:Connect(function()
+
+	infJump = not infJump
+	
+	if infJump then
+		infJumpBtn.Text = "Infinite Jump: ON"
+	else
+		infJumpBtn.Text = "Infinite Jump: OFF"
+	end
+
+end)
+
+UIS.JumpRequest:Connect(function()
+
+	if infJump then
+		humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+	end
+
+end)
